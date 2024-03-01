@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Лаба 18</title>
+  <style>
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <form id="myForm" action="#" method="post">
+    <label for="username">Имя пользователя:</label>
+    <input type="text" id="username" name="username">
+    <span id="usernameError" class="error"></span>
+    
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email">
+    <span id="emailError" class="error"></span>
+    
+    <label for="password">Пароль:</label>
+    <input type="password" id="password" name="password">
+    <span id="passwordError" class="error"></span>
+    
+    <input type="submit" value="Отправить">
+  </form>
+
+  <script>
+    document.getElementById('myForm').addEventListener('submit', function(event) {
+      let username = document.getElementById('username').value;
+      let email = document.getElementById('email').value;
+      let password = document.getElementById('password').value;
+
+      let usernameError = document.getElementById('usernameError');
+      let emailError = document.getElementById('emailError');
+      let passwordError = document.getElementById('passwordError');
+
+      // Проверка на пустоту
+      if (username === '') {
+        usernameError.textContent = 'Поле не может быть пустым';
+        event.preventDefault(); // Остановка отправки формы
+      } else {
+        usernameError.textContent = '';
+      }
+
+      if (email === '') {
+        emailError.textContent = 'Поле не может быть пустым';
+        event.preventDefault();
+      } else {
+        emailError.textContent = '';
+      }
+
+      if (password === '') {
+        passwordError.textContent = 'Поле не может быть пустым';
+        event.preventDefault();
+      } else {
+        passwordError.textContent = '';
+      }
+    });
+  </script>
+</body>
+</html>
